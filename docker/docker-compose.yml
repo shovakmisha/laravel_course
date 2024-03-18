@@ -18,12 +18,14 @@ services:
         depends_on:
             -   php
     mysql:
-        image: mysql:8
+        image: mysql:5.5
         restart: always
         ports:
             -   "3306:3306"
         environment:
             MYSQL_ROOT_PASSWORD: root
+            MYSQL_DATABASE: laravel8
+            MYSQL_PASSWORD: root
         container_name: 'mysql'
     phpmyadmin:
         image: phpmyadmin
