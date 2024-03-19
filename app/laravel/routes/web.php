@@ -1,7 +1,11 @@
 <?php
 
+use App\Http\Controllers\CategoryController;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ContactController;
+//use App\Models\User;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -34,6 +38,14 @@ Route::middleware([
     'verified'
 ])->group(function () {
     Route::get('/dashboard', function () {
-        return view('dashboard');
+
+        // $users = User::all();
+
+        $users = DB::table('users')->get();
+
+        return view('dashboard', compact('users'));
     })->name('dashboard');
 });
+
+// Category Controller
+Route::get('/category/all', [CategoryController::class, 'AllCat'])->name('all.category');
