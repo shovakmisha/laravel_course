@@ -39,7 +39,7 @@ Route::middleware([
 ])->group(function () {
     Route::get('/dashboard', function () {
 
-        // $users = User::all();
+        // $users = User::all(); - це якщо використовувати модель - App\Models\User;
 
         $users = DB::table('users')->get();
 
@@ -49,3 +49,5 @@ Route::middleware([
 
 // Category Controller
 Route::get('/category/all', [CategoryController::class, 'AllCat'])->name('all.category');
+
+Route::post('/category/add', [CategoryController::class, 'AddCat'])->name('store.category');
