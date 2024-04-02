@@ -1,11 +1,6 @@
 <?php
 
-use App\Http\Controllers\CategoryController;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\ContactController;
-//use App\Models\User;
-
 
 /*
 |--------------------------------------------------------------------------
@@ -21,33 +16,3 @@ use App\Http\Controllers\ContactController;
 Route::get('/', function () {
     return view('welcome');
 });
-
-Route::get('/home', function () {
-    echo "This is home page";
-});
-
-Route::get('/about', function () {
-    return view('about');
-})->middleware('check');
-
-Route::get('/contact-trulala', [ContactController::class, 'index'])->name('contact');
-
-Route::middleware([
-    'auth:sanctum',
-    config('jetstream.auth_session'),
-    'verified'
-])->group(function () {
-    Route::get('/dashboard', function () {
-
-        // $users = User::all(); - це якщо використовувати модель - App\Models\User;
-
-        $users = DB::table('users')->get();
-
-        return view('dashboard', compact('users'));
-    })->name('dashboard');
-});
-
-// Category Controller
-Route::get('/category/all', [CategoryController::class, 'AllCat'])->name('all.category');
-
-Route::post('/category/add', [CategoryController::class, 'AddCat'])->name('store.category');

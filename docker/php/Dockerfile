@@ -1,15 +1,16 @@
-FROM php:7.3.7-fpm
+FROM php:8.0-fpm
 
 RUN apt-get update && \
     apt-get install -y \
     git \
     sudo
 
-RUN yes | pecl install xdebug-2.9.0 \
-    && docker-php-ext-enable xdebug \
+RUN pecl channel-update pecl.php.net \
+    && pecl install xdebug \
     && docker-php-ext-install mysqli pdo pdo_mysql \
     && docker-php-ext-enable pdo_mysql
 
+RUN docker-php-ext-enable xdebug
 
 COPY --from=composer:2.2 /usr/bin/composer /usr/bin/composer
 
