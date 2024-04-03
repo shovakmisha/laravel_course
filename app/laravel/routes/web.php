@@ -1,7 +1,10 @@
 <?php
 
 use App\Http\Controllers\BlogController;
+use App\Http\Controllers\LoginController;
+use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\TestController;
+use App\Http\Controllers\TesttwoController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -22,7 +25,11 @@ use Illuminate\Support\Facades\Route;
 
     // Route::redirect('/home', '/', 302);
 
-    Route::get('/test', TestController::class);
+    // По роуту test викличеться клас LogMiddleware
+    // Можна було б і запихнути цілий клас у middleware - middleware(App\Http\Middleware\LogMiddleware::class)
+    Route::get('/test', TestController::class)->middleware('test');
+
+    Route::get('/testtwo', [TesttwoController::class, 'index']);
 
 
     Route::get('/blog', [BlogController::class, 'index'])->name('blog');
@@ -43,12 +50,15 @@ use Illuminate\Support\Facades\Route;
 //('posts/{post}/comments', 'posts/{post}/comments', 'posts/{post}/comments{comment}/edit')
 Route::resource('posts/{post}/comments', \App\Http\Controllers\Post\CommentController::class);
 
+Route::middleware('guest')->group(function (){
+    Route::get('register', [RegisterController::class, 'index'])->name('register');
+    Route::get('register', [RegisterController::class, 'store'])->name('register.store');
 
-Route::get('register', [RegisterController::class, 'index'])->name('register');
-Route::get('register', [RegisterController::class, 'store'])->name('register.store');
+    Route::get('login', [LoginController::class, 'index'])->name('login');
+    Route::post('login', [LoginController::class, 'store'])->name('login.store');
+});
 
-Route::get('login', [LoginController::class, 'index'])->name('login');
-Route::post('login', [LoginController::class, 'store'])->name('login.store');
+
 
 
     // завжди пишеться вкінці

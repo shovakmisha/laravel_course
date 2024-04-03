@@ -4,7 +4,8 @@ use App\Http\Controllers\User\PostController;
 use Illuminate\Support\Facades\Route;
 
 // GRUD
-Route::prefix('user')->as('user.')->group(function (){ // Відтепер ці роути будуть мати префікс - user. Наприклад - user/posts
+Route::prefix('user')->middleware('auth', 'active')->as('user.')->group(function (){ // Відтепер ці роути будуть мати префікс - user. Наприклад - user/posts
+    Route::redirect('/', '/user/posts')->name('user');
     Route::get('posts', [PostController::class, 'index'])->name('posts'); // Також імя роута тепер буде - user.posts
     Route::get('posts/create', [PostController::class, 'create'])->name('posts.create');
     Route::post('posts', [PostController::class, 'store'])->name('post.store');

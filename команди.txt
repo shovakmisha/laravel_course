@@ -1,9 +1,9 @@
 
-1) php artisan make:controller PostController
+ 1) php artisan make:controller PostController
 
-2) php artisan route:list
+ 2) php artisan route:list
 
-3) php artisan tinker - приблуда laravel. туди треба зайти і відкриються нові можливості
+ 3) php artisan tinker - приблуда laravel. туди треба зайти і відкриються нові можливості. Кожного разу коли змінюється код tinker треба перезапускати.
 
 	- route('posts') - "http://localhost/posts" - чомусь не додав порт - http://localhost:5555/posts - роут posts зареєстрований в системі і воно просто виплюнуло повний маршрут
 	
@@ -11,5 +11,7 @@
 		
 		- Якщо роут динамічний - 'posts/{post}/edit' - то динамічне значення треба задати через кому - route('posts.edit', 123);
 		
-		- Квері стрінг задаються масивом - route('posts.edit', [123, 'foo' => 'bar']);
-
+		- Квері стрінг задаються масивом - route('posts.edit', [123, 'foo' => 'bar']); // "http://localhost/posts/123/edit?foo=bar"
+ 
+ 4) php artisan down - закрити сайт на підтримку
+ 

@@ -1,0 +1,17 @@
+
+ 1) Роутам треба давати назви обовязково (->name('')), тоді відкриються нові можливості
+ 
+ 	- Route::has('test'); // true/false
+ 	
+ 2) Роути можна закешувати
+ 
+ 3) На формах не забути добавляти CSRF захист
+ 
+ 4) Напишу це сюди, бо в ide буде незрозуміло. У файлі Kernel.php є свойство $middlewareGroups - це масив з групами Middleware. Якщо я захочу добавити групу роутів у конкретний Middleware (наприклад test - Route::get('/test', TestController::class)->middleware('test');), то мені це треба буде добавити у файлі роута(наприклад web.php) і у файлі Kernel.php ('test' => [LogMiddleware::class])
+ 
+ 	- Але якщо мені не треба групу, а 1 конкретний, то буде все так само, просто у файлі Kernel.php треба буде прописати це у свойство - $routeMiddleware
+ 	
+ 	- Ну а якщо на всі маршрути, то треба добавити Middleware у свойство - $middleware
+
+
+ 5) Route::get('/test', TestController::class)->middleware('key:value, justkey'); - 'key:value, justkey' передадуться в middleware і там у параметрах ф-ції handle їх можна буде звідти забрати
