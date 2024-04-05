@@ -25,6 +25,10 @@ use Illuminate\Support\Facades\Route;
 
     // Route::redirect('/home', '/', 302);
 
+    Route::get('/home', function () {
+        return view('home.index');
+    })->name('home');
+
     // По роуту test викличеться клас LogMiddleware
     // Можна було б і запихнути цілий клас у middleware - middleware(App\Http\Middleware\LogMiddleware::class)
     Route::get('/test', TestController::class)->middleware('test');
@@ -52,7 +56,7 @@ Route::resource('posts/{post}/comments', \App\Http\Controllers\Post\CommentContr
 
 Route::middleware('guest')->group(function (){
     Route::get('register', [RegisterController::class, 'index'])->name('register');
-    Route::get('register', [RegisterController::class, 'store'])->name('register.store');
+    Route::post('register', [RegisterController::class, 'store'])->name('register.store');
 
     Route::get('login', [LoginController::class, 'index'])->name('login');
     Route::post('login', [LoginController::class, 'store'])->name('login.store');

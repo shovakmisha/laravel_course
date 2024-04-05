@@ -15,3 +15,14 @@
 
 
  5) Route::get('/test', TestController::class)->middleware('key:value, justkey'); - 'key:value, justkey' передадуться в middleware і там у параметрах ф-ції handle їх можна буде звідти забрати
+ 
+ 6) @{{ $my_var }} - знак @ означає проігнорувати скобки. Типу ларавель не буде на них діяти. Виведеться {{ $my_var }}
+ 
+ 7) Щоб написати у конфігах(.env) значення з двох слів, треба взяти їх в апострофи
+ 
+ 8) У ларавель є фішка передання змінної на всі сторінки проекту. Клас AppServiceProvider метод boot() - Illuminate\Support\Facades\View::share('date', date('Y')); - тепер змінна date буде доступна на всіх шаблонах проекта.
+ 
+ 	- те саме, тільки по конкретних роутах
+ 	View::composer('user*', function ($view){ - На всіх роутах, які починаються з user
+            $view->with('balance', 12345); - передай змінну balance зі значенням 12345
+        });
