@@ -1,12 +1,19 @@
-@extends('layouts.base')
+@extends('layouts.main')
 
 @section('page.title', $post['title'])
 
-@section('content')
+@section('main.content')
 
-    <a href="{{ route('blog') }}">Список постов</a>
+    <x-title>
 
-    <h1 class="mb-5">{{ $post['title'] }}</h1>
+        <x-slot name="link">
+            <a href="{{ route('blog') }}">{{ __('Список постов') }}</a>
+        </x-slot>
+
+        {{ $post['title'] }}
+
+    </x-title>
+
 
     <p>
         {{ $post['content'] }}

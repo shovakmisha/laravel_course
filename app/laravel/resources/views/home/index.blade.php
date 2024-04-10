@@ -1,8 +1,8 @@
-@extends('layouts.base')
+@extends('layouts.main')
 
 @section('page.title', 'Главная страница')
 
-@section('content')
+@section('main.content')
 
     <h1>Главная страница</h1>
 

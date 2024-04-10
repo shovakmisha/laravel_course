@@ -15,3 +15,4 @@
  
  4) php artisan down - закрити сайт на підтримку
  
+ 5) php artisan make:component ComonentName - Створить 2 файли. леяут і App\View\Components\ComonentName
