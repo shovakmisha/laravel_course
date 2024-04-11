@@ -19,22 +19,22 @@
 
                     <x-form-item>
                         <x-label required >{{ __('Имя') }}</x-label>
-                        <x-input type="text" name="name" class="form-control" autofocus />
+                        <x-input type="text" name="name" value="name" autofocus />
                     </x-form-item>
 
                     <x-form-item>
                         <x-label required >{{ __('Email') }}</x-label>
-                        <x-input type="email" name="email" class="form-control" />
+                        <x-input type="email" name="email" value="email" />
                     </x-form-item>
 
                     <x-form-item>
                         <x-label required >{{ __('Password') }}</x-label>
-                        <x-input type="password" name="password" class="form-control" />
+                        <x-input type="password" name="password" value="password" />
                     </x-form-item>
 
                     <x-form-item>
                         <x-label required >{{ __('Пароль ещё раз' ) }}</x-label>
-                        <x-input type="password" name="password_confirmation" class="form-control" />
+                        <x-input type="password" name="password_confirmation" value="password_confirmation" />
                     </x-form-item>
 
                     <x-form-item >

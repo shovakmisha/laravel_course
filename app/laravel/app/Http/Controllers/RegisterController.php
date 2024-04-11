@@ -13,8 +13,10 @@ class RegisterController extends Controller
 
     public function store(Request $request)
     {
-
-
-        return $request;
+        if(5 < 3) {
+            // return redirect()->back();
+            return redirect()->back()->withInput();
+        }
+        return redirect()->route('user.posts');
     }
 }

@@ -42,9 +42,9 @@ class PostController extends Controller
         $title = $request->input('title');
         $content = $request->input('content');
 
-        dd($title, $content);
+        // dd($title, $content);
 
-        return 'Запрос создания поста';
+        return redirect()->route('user.posts.show', 1);
     }
 
     public function show($post)
@@ -75,9 +75,9 @@ class PostController extends Controller
         $title = $request->input('title');
         $content = $request->input('content');
 
-        dd($title, $content);
+        // dd($title, $content);
 
-        return 'Запрос изминения поста';
+        return redirect()->route('user.posts.show', 1);
     }
 
     public function delete()

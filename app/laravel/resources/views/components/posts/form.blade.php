@@ -1,4 +1,4 @@
-@props(['post' => null, 'text' => 'Создать пост', 'method'])
+@props(['post' => null, 'method'])
 
 <x-form {{ $attributes }} method="POST">
 
@@ -17,8 +17,6 @@
         <trix-editor input="content"></trix-editor>
     </x-form-item>
 
-    <x-button type="submit">
-        {{ __($text) }}
-    </x-button>
+    {{ $slot }}
 
 </x-form>

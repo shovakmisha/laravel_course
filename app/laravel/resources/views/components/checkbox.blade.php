@@ -1,7 +1,9 @@
-<div class="form-check">
-    <input class="form-check-input" type="checkbox" {{ $attributes->merge(['value' => 1]) }} id="remember">
+@php($id = Str::uuid())
 
-    <label class="form-check-label" for="remember">
+<div class="form-check">
+    <input class="form-check-input" type="checkbox" {{ $attributes->merge(['value' => 1, 'checked' => !!request()->old($attributes->get('name'))]) }} id="{{ $id }}">
+
+    <label class="form-check-label" for="{{ $id }}">
         {{ $slot }}
     </label>
 </div>

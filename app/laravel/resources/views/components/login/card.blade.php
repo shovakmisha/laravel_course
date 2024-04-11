@@ -15,12 +15,12 @@
 
                 <x-form-item>
                     <x-label required >{{ __('Email') }}</x-label>
-                    <x-input type="email" name="email" class="form-control" autofocus />
+                    <x-input type="email" name="email" value="email" autofocus />
                 </x-form-item>
 
                 <x-form-item>
                     <x-label required >{{ __('Password') }}</x-label>
-                    <x-input type="password" name="password" class="form-control" />
+                    <x-input type="password" name="password" value="password" />
                 </x-form-item>
 
                 <x-form-item >
