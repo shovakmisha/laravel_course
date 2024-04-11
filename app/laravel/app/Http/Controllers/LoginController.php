@@ -16,4 +16,15 @@ class LoginController extends Controller
         // return view()->make('login.index')
         // return View::make('login.index');
     }
+
+    public function store(Request $request)
+    {
+        $ip = $request->ip();
+
+        $email = $request->input('email');
+        $password = $request->input('password');
+        $remember = $request->input('remember');
+
+        dd($email, $password, $remember, $ip);
+    }
 }

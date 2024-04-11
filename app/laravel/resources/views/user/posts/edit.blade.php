@@ -12,7 +12,7 @@
         </x-slot:link>
     </x-title>
 
-    <x-posts.form :post="$post" text="Изменить пост" action="{{ route('user.post.store') }}" method="post" >
+    <x-posts.form :post="$post" text="Изменить пост" action="{{ route('user.post.update') }}" method="PUT" >
 
     </x-posts.form>
 
