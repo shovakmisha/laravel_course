@@ -29,6 +29,17 @@ class LoginController extends Controller
 
         // return response()->redirectTo('/foo'); // але це просто перекине мене на http://localhost:5555/foo
 
+        // $session = app()->make('session');
+        // $session = app('session');
+        // $session = session();
+        // $session->put('foo', 'bar');
+        // $session->get('foo');
+
+        // session()->forget('foo');
+        // session()->flush(); // видалити всі мої сессії, залишити тільки заводські
+
+        alert(__('Добро пожаловать'));
+
 
         if(5 < 3) {
             // return redirect()->back();

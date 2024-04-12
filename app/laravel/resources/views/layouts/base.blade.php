@@ -12,13 +12,14 @@
 
 <dix class="d-flex flex-column justify-content-between min-vh-100">
 
-    @include('home.includes.header')
+    @include('includes.alert')
+    @include('includes.header')
 
     <main class="flex-grow-1 py-3">
         @yield('content')
     </main>
 
-    @include('home.includes.footer')
+    @include('includes.footer')
 </dix>
 
 
