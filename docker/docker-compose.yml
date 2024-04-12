@@ -43,3 +43,8 @@ services:
             - ../app:/var/www/app
         ports:
             - "5137:5137"
+    redis:
+        image: redis
+        container_name: redis
+        ports:
+            - "6379:6379"
