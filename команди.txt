@@ -16,3 +16,19 @@
  4) php artisan down - закрити сайт на підтримку
  
  5) php artisan make:component ComonentName - Створить 2 файли. леяут і App\View\Components\ComonentName
+ 
+ 6) php artisan make:migration create_users_table - Створить файл для міграції в папці migration, щоб потім створити таблицю з назвою users
+ 
+ 7) php artisan migrate - Запустити міграцію. Якщо умовно таблиця users вже існує, міграції не буде
+ 
+ 8) php artisan migrate:rollback - відкотити попередню міграцію. Важливо - якщо під час попередньої міграції спрацювали декілька файликів інстал скріпта, воно якраз відкотить всіх разом
+ 
+ 9) php artisan migrate:reset - відкотити всі міграції
+ 
+ 	- php artisan migrate:fresh - Видалити всі таблиці міграцій. Дуже схоже на php artisan migrate:reset
+ 	
+ 	- php artisan migrate:refresh - Видалити всі таблиці міграцій і потім накотити міграції заново
+
+ 10) php artisan make:migration add_admin_field_to_users_table - Створить файл для міграції в папці migration, щоб добавити для таблиці users, поле admin
+ 
+ 11) 
