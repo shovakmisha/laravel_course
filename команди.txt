@@ -31,4 +31,6 @@
 
  10) php artisan make:migration add_admin_field_to_users_table - Створить файл для міграції в папці migration, щоб добавити для таблиці users, поле admin
  
- 11) 
+ 11) 10) php artisan make:model Currency - Створить файл модель Currency в папці Models
+ 
+ 	- php artisan make:model Currency -m(migration) - Воно зразу створить файлик date_id_create_currencies_table.php - але не запустить php artisan migrate
