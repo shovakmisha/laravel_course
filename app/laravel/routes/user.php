@@ -11,7 +11,7 @@ Route::prefix('user')->as('user.')->group(function (){ // Відтепер ці 
     Route::post('posts', [PostController::class, 'store'])->name('post.store');
     Route::get('posts/{post}', [PostController::class, 'show'])->name('posts.show');
     Route::get('posts/{post}/edit', [PostController::class, 'edit'])->name('posts.edit');
-    Route::put('posts', [PostController::class, 'update'])->name('post.update');
+    Route::put('posts/{post}', [PostController::class, 'update'])->name('post.update');
     Route::delete('posts/{post}', [PostController::class, 'delete'])->name('post.delete');
     Route::put('posts/{post}/like', [PostController::class, 'like'])->name('post.like');
 });

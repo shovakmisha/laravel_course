@@ -3,6 +3,7 @@
 namespace app\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Post\StorePostRequest;
 use Illuminate\Http\Request;
 
 class PostController extends Controller
@@ -36,13 +37,21 @@ class PostController extends Controller
         return view('user.posts.create');
     }
 
-    public function store(Request $request)
+    public function store(StorePostRequest $request)
     {
 
-        $title = $request->input('title');
-        $content = $request->input('content');
+        // $title = $request->input('title');
+        // $content = $request->input('content');
 
         // dd($title, $content);
+
+        // Я не розумію як він вже підставляє потрібні дані title і content. Це точно, що валідатор повертає мене на цю ж сторінку, якщо валідація не проходить
+        // $validated = validator($request->all(), [
+        //     'title' => ['required', 'string', 'max:100'],
+        //     'content' => ['required', 'string']
+        // ])->validate();
+
+        $validated = $request->validated();
 
         alert(__('Сохранено'));
 
@@ -71,13 +80,13 @@ class PostController extends Controller
         return view('user.posts.edit', compact('post'));
     }
 
-    public function update(Request $request)
+    public function update(Request $request, $post)
     {
 
-        $title = $request->input('title');
-        $content = $request->input('content');
-
-        // dd($title, $content);
+        $validated = validator($request->all(), [
+            'title' => ['required', 'string', 'max:100'],
+            'content' => ['required', 'string']
+        ])->validate();
 
         alert(__('Сохранено'));
 

@@ -34,3 +34,5 @@
  11) 10) php artisan make:model Currency - Створить файл модель Currency в папці Models
  
  	- php artisan make:model Currency -m(migration) - Воно зразу створить файлик date_id_create_currencies_table.php - але не запустить php artisan migrate
+ 	
+ 12) php artisan make:request StorePostRequest - створить файлик у папці Http/Request
