@@ -27,6 +27,18 @@
 
     </x-form-item>
 
+    <x-form-item>
+        <x-label>{{ __('Дата публикации') }}</x-label>
+        <x-input class="form-control" name="published_at" placeholder="dd.mm.yyyy" />
+
+        <x-error name="published_at" />
+
+    </x-form-item>
+
+    <x-checkbox name="published">
+        {{ __('Опубликовано') }}
+    </x-checkbox>
+
     {{ $slot }}
 
 </x-form>

@@ -30,6 +30,8 @@ services:
     phpmyadmin:
         image: phpmyadmin
         restart: always
+        depends_on:
+            -   mysql
         ports:
             - "8080:80"
         environment:
@@ -46,5 +48,7 @@ services:
     redis:
         image: redis
         container_name: redis
+        depends_on:
+            -   mysql
         ports:
             - "6379:6379"
