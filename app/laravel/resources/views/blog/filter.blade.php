@@ -7,7 +7,8 @@
         </div>
         <div class="col-12">
             <div class="mb-3">
-                <x-select name="category_id" class="form-control" />
+                <x-select name="category_id" class="form-control" :options="$categories" />
+
             </div>
         </div>
         <div class="col-12">

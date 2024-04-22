@@ -36,3 +36,30 @@
  	- php artisan make:model Currency -m(migration) - Воно зразу створить файлик date_id_create_currencies_table.php - але не запустить php artisan migrate
  	
  12) php artisan make:request StorePostRequest - створить файлик у папці Http/Request
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+use App\Models\Post;
+use App\Models\User;
+
+for($i = 0; $i < 99; $i++){
+	Post::query()->create([
+		'user_id' => User::query()->value('id'),
+		'title' => fake()->sentence(),
+		'content' => fake()->paragraph(),
+		'published' => true,
+		'published_at' => fake()->dateTimeBetween(now()->subYear(), now()),
+	]);
+}
+

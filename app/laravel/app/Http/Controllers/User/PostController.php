@@ -7,6 +7,7 @@ use App\Http\Requests\Post\StorePostRequest;
 use App\Models\Post;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Carbon\Carbon;
 use function Webmozart\Assert\Tests\StaticAnalysis\string;
 
 class PostController extends Controller
@@ -14,23 +15,7 @@ class PostController extends Controller
 
     public function index()
     {
-        $posts = [
-            [
-                'id' => 1,
-                'title' => 'Lorem ipsum color sit amet',
-                'content' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus, placeat.'
-            ],
-            [
-                'id' => 2,
-                'title' => 'Lorem ipsum color sit amet',
-                'content' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus, placeat.'
-            ],
-            [
-                'id' => 3,
-                'title' => 'Lorem ipsum color sit amet',
-                'content' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus, placeat.'
-            ],
-        ];
+        $posts = Post::query()->latest('published_at')->limit(12)->paginate(12, ['id', 'title', 'published_at']);
 
         return view('user.posts.index', compact('posts'));
     }
@@ -62,7 +47,7 @@ class PostController extends Controller
             'user_id' => User::query()->value('id'),
             'title' => $validated['title'],
             'content' => $validated['content'],
-            'published_at' => $validated['published_at'] ?? null,
+            'published_at' => new Carbon($validated['published_at']) ?? null,
             'published' => $validated['published'] ?? false,
         ]);
 

@@ -5,6 +5,9 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
+/**
+ * @property bool $published
+ */
 class Post extends Model
 {
     use HasFactory;
@@ -18,8 +21,14 @@ class Post extends Model
     ];
 
     protected $casts = [
+        'user_id' => 'integer',
         'published_at' => 'datetime',
         'published' => 'boolean',
     ];
+
+    public function isPublished(): bool
+    {
+        return $this->published && $this->published_at;
+    }
 
 }
